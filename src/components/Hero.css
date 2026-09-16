@@ -1,0 +1,222 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background image layer */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% center;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to left,
+      rgba(6, 29, 54, 0.92) 0%,
+      rgba(6, 29, 54, 0.75) 40%,
+      rgba(6, 29, 54, 0.5) 70%,
+      rgba(6, 29, 54, 0.3) 100%
+    );
+}
+
+/* Content */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  max-width: 780px;
+}
+
+.hero__badge {
+  display: inline-block;
+  background: rgba(200, 169, 81, 0.15);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 0.4rem 1.25rem;
+  border-radius: 100px;
+  border: 1px solid rgba(200, 169, 81, 0.3);
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.6s var(--ease-out-expo) both;
+}
+
+.hero__title {
+  color: var(--color-white);
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.6s var(--ease-out-expo) 0.1s both;
+}
+
+.hero__title-accent {
+  color: var(--color-accent);
+  display: block;
+}
+
+.hero__subtitle {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  animation: fadeInUp 0.6s var(--ease-out-expo) 0.2s both;
+}
+
+/* Countdown offer */
+.hero__offer {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  animation: fadeInUp 0.6s var(--ease-out-expo) 0.4s both;
+}
+
+.hero__offer-label {
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.hero__timer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  direction: ltr;
+  justify-content: center;
+}
+
+.hero__timer-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 48px;
+}
+
+.hero__timer-num {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__timer-unit {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.25rem;
+}
+
+.hero__timer-sep {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s var(--ease-out-expo) 0.35s both;
+}
+
+.hero__actions .btn-lg {
+  padding: 0.85rem 2.25rem;
+  font-size: var(--text-base);
+}
+
+/* Scroll hint */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 0.8; transform: scaleY(1); }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 90vh;
+  }
+
+  .hero__bg-img {
+    object-position: 20% center;
+  }
+
+  .hero__overlay {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(6, 29, 54, 0.85) 0%,
+        rgba(6, 29, 54, 0.7) 50%,
+        rgba(6, 29, 54, 0.9) 100%
+      );
+  }
+
+  .hero__content {
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+    text-align: center;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__subtitle {
+    margin-inline: auto;
+  }
+
+  .hero__offer {
+    align-items: center;
+  }
+
+  .hero__timer {
+    justify-content: center;
+  }
+}

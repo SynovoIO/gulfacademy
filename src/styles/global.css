@@ -1,0 +1,74 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--duration-fast) ease;
+}
+
+.btn {
+  font-family: var(--font-family);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  padding: 0.625rem 1.75rem;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  border: none;
+}
+
+.btn-accent:hover {
+  background: var(--color-accent-light);
+  color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-outline-light {
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: var(--color-white);
+  background: transparent;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
